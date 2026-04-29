@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #10b981;
+  --color-primary-dark: #059669;
+  --color-secondary: #22c55e;
+  --color-accent: #3b82f6;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", monospace;
+}
+
+:root {
+  --background: #f0fdf4;
+  --foreground: #1c1917;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #10b981 0%, #059669 40%, #3b82f6 100%);
+}
+
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15), 0 0 0 1px rgba(16, 185, 129, 0.08);
+}
+
+.progress-bar {
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(48px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.option-btn {
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid #bbf7d0;
+  background: white;
+}
+.option-btn:hover {
+  border-color: #10b981;
+  background: #f0fdf4;
+  transform: translateX(6px);
+  box-shadow: -4px 0 0 0 #10b981;
+}
+.option-btn.selected {
+  border-color: #10b981;
+  background: #f0fdf4;
+  box-shadow: -4px 0 0 0 #10b981, 0 4px 16px rgba(16, 185, 129, 0.15);
+}
